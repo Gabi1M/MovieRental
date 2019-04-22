@@ -1,0 +1,7 @@
+C:\Users\ig_99\source\repos\MovieRental\MovieRental\obj\Debug\MovieRental.csprojAssemblyReference.cache
+C:\Users\ig_99\source\repos\MovieRental\MovieRental\obj\Debug\MovieRental.csproj.CoreCompileInputs.cache
+C:\Users\ig_99\source\repos\MovieRental\MovieRental\bin\Debug\MovieRental.exe.config
+C:\Users\ig_99\source\repos\MovieRental\MovieRental\bin\Debug\MovieRental.exe
+C:\Users\ig_99\source\repos\MovieRental\MovieRental\bin\Debug\MovieRental.pdb
+C:\Users\ig_99\source\repos\MovieRental\MovieRental\obj\Debug\MovieRental.exe
+C:\Users\ig_99\source\repos\MovieRental\MovieRental\obj\Debug\MovieRental.pdb
