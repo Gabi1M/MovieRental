@@ -14,11 +14,13 @@ namespace MovieRental.Ui
     {
         private ClientService clientService;
         private MovieService movieService;
+        private RentService rentService;
 
         public UIConsole()
         {
             this.clientService = new ClientService(new ClientRepository());
             this.movieService = new MovieService(new MovieRepository());
+            this.rentService = new RentService(new RentRepository());
         }
 
         public void printMenu()
@@ -31,6 +33,9 @@ namespace MovieRental.Ui
             Console.WriteLine("6. Update movie.");
             Console.WriteLine("7. Print all clients.");
             Console.WriteLine("8. Print all movies.");
+            Console.WriteLine("9. Rent movie.");
+            Console.WriteLine("10. Show all rented movies.");
+            Console.WriteLine("0. Exit.");
         }
 
         public void run()
@@ -207,6 +212,34 @@ namespace MovieRental.Ui
                             foreach(Movie m in movies)
                             {
                                 Console.WriteLine(m.ToString());
+                            }
+                            break;
+                        }
+                    case 9:
+                        {
+                            Console.WriteLine("Give the client id: ");
+                            long clientID = long.Parse(Console.ReadLine());
+                            Console.WriteLine("Give the movie id: ");
+                            long movieID = long.Parse(Console.ReadLine());
+                            Rent rent = new Rent(clientID, movieID);
+                            if (rentService.add(rent) == 1)
+                            {
+                                Console.WriteLine("Movie rented successfully!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Error");
+                            }
+                            break;
+                        }
+                    case 10:
+                        {
+                            HashSet<Rent> rents = rentService.getAll();
+                            foreach(Rent r in rents)
+                            {
+                                Client client = clientService.getByID(r.getIdClient());
+                                Movie movie = movieService.getByID(r.getIdMovie());
+                                Console.WriteLine("Client " + client.getName() + " rented the movie: " + movie.getName());
                             }
                             break;
                         }

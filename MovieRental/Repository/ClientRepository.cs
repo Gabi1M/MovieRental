@@ -76,6 +76,19 @@ namespace MovieRental.Repository
             return this.clients;
         }
 
+        public virtual Client getByID(long ID)
+        {
+            foreach(Client c in clients)
+            {
+                if(c.getID() == ID)
+                {
+                    return c;
+                }
+            }
+
+            return null;
+        }
+
         public override string ToString()
         {
             string result = "";

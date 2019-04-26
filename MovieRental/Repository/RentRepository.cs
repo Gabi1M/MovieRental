@@ -8,20 +8,20 @@ using MovieRental.Model;
 
 namespace MovieRental.Repository
 {
-    class MovieRepository : Repository<Movie>
+    class RentRepository : Repository<Rent>
     {
-        private HashSet<Movie> movies;
+        private HashSet<Rent> rents;
 
-        public MovieRepository()
+        public RentRepository()
         {
-            movies = new HashSet<Movie>();
+            this.rents = new HashSet<Rent>();
         }
 
-        public virtual int add(Movie movie)
+        public virtual int add(Rent rent)
         {
-            if (movie != null)
+            if(rent != null)
             {
-                movies.Add(movie);
+                this.rents.Add(rent);
                 return 1;
             }
             else
@@ -32,13 +32,13 @@ namespace MovieRental.Repository
 
         public virtual int remove(long ID)
         {
-            if(ID >= 0)
+            if (ID >= 0)
             {
-                foreach(Movie m in movies)
+                foreach (Rent r in rents)
                 {
-                    if(m.getID() == ID)
+                    if (r.getID() == ID)
                     {
-                        movies.Remove(m);
+                        rents.Remove(r);
                         return 1;
                     }
                 }
@@ -50,16 +50,16 @@ namespace MovieRental.Repository
             }
         }
 
-        public virtual int update(Movie movie)
+        public virtual int update(Rent rent)
         {
-            if (movie != null)
+            if (rent != null)
             {
-                foreach (Movie m in movies)
+                foreach (Rent r in rents)
                 {
-                    if (m.getID() == movie.getID())
+                    if (r.getID() == rent.getID())
                     {
-                        movies.Remove(m);
-                        movies.Add(movie);
+                        rents.Remove(r);
+                        rents.Add(rent);
                         return 1;
                     }
                 }
@@ -71,18 +71,18 @@ namespace MovieRental.Repository
             }
         }
 
-        public virtual HashSet<Movie> getAll()
+        public HashSet<Rent> getAll()
         {
-            return this.movies;
+            return this.rents;
         }
 
-        public Movie getByID(long ID)
+        public Rent getByID(long ID)
         {
-            foreach(Movie m in movies)
+            foreach(Rent r in rents)
             {
-                if(m.getID() == ID)
+                if(r.getID() == ID)
                 {
-                    return m;
+                    return r;
                 }
             }
 
@@ -92,9 +92,9 @@ namespace MovieRental.Repository
         public override string ToString()
         {
             string result = "";
-            foreach (Movie m in movies)
+            foreach(Rent r in rents)
             {
-                result += m.ToString();
+                result += r.ToString();
             }
 
             return result;

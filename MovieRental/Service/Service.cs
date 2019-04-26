@@ -15,5 +15,7 @@ namespace MovieRental.Service
         int update(T obj);
 
         HashSet<T> getAll();
+
+        T getByID(long ID);
     }
 }

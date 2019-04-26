@@ -37,5 +37,10 @@ namespace MovieRental.Service
         {
             return movieRepository.getAll();
         }
+
+        public virtual Movie getByID(long ID)
+        {
+            return this.movieRepository.getByID(ID);
+        }
     }
 }

@@ -38,5 +38,10 @@ namespace MovieRental.Service
             return clientRepository.getAll();
         }
 
+        public virtual Client getByID(long ID)
+        {
+            return this.clientRepository.getByID(ID);
+        }
+
     }
 }
